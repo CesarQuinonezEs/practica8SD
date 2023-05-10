@@ -1,10 +1,11 @@
-const {Schema, model} = require('mongoose');
+const {Schema, model,Types} = require('mongoose');
 const filmSchema = new Schema({
     imdbid: String,
     title: String,
     runtime: String,
     released: String,
     synopsis: String,
-    rating: Decimal128
+    rating: {type: Types.Decimal128},
+    imgurl: String
 });
 module.exports = model('Film',filmSchema);
