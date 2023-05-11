@@ -189,7 +189,7 @@ route.get('/:imdbid',getByImdbid);
  * /api/film/:
  *  put:
  *    summary: edit a fil (only admin)
- *    tags: [Role] 
+ *    tags: [Film] 
  *    parameters:
  *      - in: header
  *        name: X-API-Key
