@@ -5,7 +5,9 @@ const filmSchema = new Schema({
     runtime: String,
     released: String,
     synopsis: String,
-    rating: {type: Types.Decimal128},
+    ratingPoitns: Number,
+    ratingPeople: Number,
+    ratingAverage: Schema.Types.Decimal128,
     imgurl: String
 });
 module.exports = model('Film',filmSchema);
