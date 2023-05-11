@@ -1,0 +1,10 @@
+const {Router} = require('express');
+const route = Router();
+const {createRole,getAllRoles,getById,roleDelete,roleEdit} = require('../controller/role.controller');
+const {isAdmin,verifyToken}= require('../middleware/authJWT');
+route.get('/',[verifyToken,isAdmin],getAllRoles);
+route.post('/',[verifyToken,isAdmin],createRole);
+route.get('/:id',[verifyToken,isAdmin],getById);
+route.put('/:id',[verifyToken,isAdmin],roleEdit);
+route.delete('/:id',[verifyToken,isAdmin],roleDelete);
+module.exports = route;

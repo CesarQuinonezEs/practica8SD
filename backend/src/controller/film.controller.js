@@ -11,8 +11,8 @@ filmCtrl.getAllFilms = async (req, res) => {
 }
 filmCtrl.createFilm = async(req,res)=>{
     try {
-        const {imdbid,title,runtime,released,synopsis,ratingPoitns,ratingPeople,ratingAverage,imgurl} = req.body;
-        const newFilm = new Film({imdbid,title,runtime,released,synopsis,ratingPoitns,ratingPeople,ratingAverage,imgurl});
+        const {imdbid,title,runtime,released,synopsis,rating,imgurl} = req.body;
+        const newFilm = new Film({imdbid,title,runtime,released,synopsis,rating,imgurl});
         console.log("Nueva pelicula: ", newFilm);
         await newFilm.save();
         res.status(200).json({message: 'Film Saved'});
@@ -31,7 +31,6 @@ filmCtrl.getByImdbid = async(req,res)=>{
 }
 filmCtrl.deleteFilm = async(req,res)=>{
     try {
-        console.log(req.params.id)
         await Film.findByIdAndDelete(req.params.id);
         res.status(200).json({message: 'Film Deleted'});
     } catch (error) {
