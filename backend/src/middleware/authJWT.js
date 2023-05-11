@@ -4,7 +4,7 @@ const Role = require('../models/Roles');
 const authCtrl = {};
 
 authCtrl.verifyToken = async(req,res,next)=>{
-    const token = req.header('auth-token');
+    const token = req.header('X-API-Key');
     if(!token) return res.status(401).json({error: "Acceso denegado, haz login"});
     try {
         const decoded =jwt.verify(token, "SECRET");

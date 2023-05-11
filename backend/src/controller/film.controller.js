@@ -37,5 +37,12 @@ filmCtrl.deleteFilm = async(req,res)=>{
         res.status(401).json({message: error});
     }
 }
-
+filmCtrl.editFilm = async(req,res)=>{
+    try {
+        const {imdbid,title,runtime,released,synopsis,rating,imgurl} = req.body;
+        const rol = await Role.findByIdAndUpdate({_id:req.params.id},{imdbid,title,runtime,released,synopsis,rating,imgurl});
+    } catch (error) {
+        res.status(401).json({message: error});
+    }
+}
 module.exports = filmCtrl;
