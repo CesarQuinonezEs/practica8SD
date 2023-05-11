@@ -157,7 +157,7 @@ route.post('/',[verifyToken,isAdmin],createFilm);
 route.delete('/:id',[verifyToken,isAdmin],deleteFilm);
 /** 
  * @swagger
- * /api/user/:imdbid:
+ * /api/user/{imdbid}:
  *  get:
  *    summary: return user by  imdbid
  *    tags: [Film]
@@ -181,7 +181,7 @@ route.delete('/:id',[verifyToken,isAdmin],deleteFilm);
  *          application/json:
  *            schema:
  *              type: object
- *              $ref: '#/components/schemas/User'
+ *              $ref: '#/components/schemas/Film'
 */
 route.get('/:imdbid',getByImdbid);
 /** 
