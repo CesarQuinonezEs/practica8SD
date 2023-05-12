@@ -42,7 +42,7 @@ route.post('/login',login);
 
 /** 
  * @swagger
- * /api/singip:
+ * /api/singup:
  *  post:
  *    summary: Create a new user 
  *    tags: [Singup]
