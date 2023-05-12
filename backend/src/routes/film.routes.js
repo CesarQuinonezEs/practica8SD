@@ -81,14 +81,8 @@ route.get('/',getAllFilms);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *    requestBody:
  *      required: true
  *      content:
@@ -113,7 +107,7 @@ route.get('/',getAllFilms);
 route.post('/',[verifyToken,isAdmin],createFilm);
 /** 
  * @swagger
- * /api/films/:
+ * /api/films/{id}:
  *  delete:
  *    summary: delete a film (only admin)
  *    tags: [Film]
@@ -177,26 +171,14 @@ route.get('/:imdbid',getByImdbid);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *      - in: path
- *        name: id
+ *        name: imdbid
  *        required: true
- *        description: film _id
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                id: 
- *                  type: String
- *                  description: film id
+ *        description: film imdbid
+ *        schema:
+ *          type: string
  *    requestBody:
  *      required: true
  *      content:

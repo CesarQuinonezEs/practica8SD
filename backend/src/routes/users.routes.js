@@ -39,14 +39,8 @@ const {isAdmin,verifyToken}= require('../middleware/authJWT')
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *    responses:
  *      200:
  *        description: get all user
@@ -69,14 +63,8 @@ route.get('/',[verifyToken,isAdmin],getAllUser);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *    requestBody:
  *      required: true
  *      content:
@@ -110,26 +98,14 @@ route.post('/',[verifyToken,isAdmin],createUser);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *      - in: path
  *        name: id
  *        required: true
- *        description: user _id
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                id: 
- *                  type: String
- *                  description: user id
+ *        description: user id
+ *        schema:
+ *          type: string
  *    responses:
  *      200:
  *        description: get an user 
@@ -151,37 +127,25 @@ route.get('/:id',[verifyToken,isAdmin],getUserById);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *      - in: path
  *        name: id
  *        required: true
- *        description: user _id
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                id: 
- *                  type: String
- *                  description: user id
+ *        description: user id
+ *        schema:
+ *          type: string
  *    responses:
  *      200:
- *        description: get an user 
+ *        description: deleted an user 
  *        content:
  *          application/json:
  *            schema:
  *              message:
  *                  type: String
- *                  description: user created!!
+ *                  description: user deleted!!
  *              example:
- *                message: user created!!'
+ *                message: user deleted!!'
 */
 route.delete('/:id',[verifyToken,isAdmin],deleteUser);
 

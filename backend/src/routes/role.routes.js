@@ -29,14 +29,8 @@ const {isAdmin,verifyToken}= require('../middleware/authJWT');
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *    responses:
  *      200:
  *        description: get all roles
@@ -59,14 +53,8 @@ route.get('/',[verifyToken,isAdmin],getAllRoles);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *    requestBody:
  *      required: true
  *      content:
@@ -102,26 +90,14 @@ route.post('/',[verifyToken,isAdmin],createRole);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *      - in: path
  *        name: id
  *        required: true
- *        description: role _id
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                id: 
- *                  type: String
- *                  description: role id
+ *        description: role id
+ *        schema:
+ *          type: string
  *    responses:
  *      200:
  *        description: get a role
@@ -144,26 +120,14 @@ route.get('/:id',[verifyToken,isAdmin],getById);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *      - in: path
  *        name: id
  *        required: true
- *        description: role _id
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                id: 
- *                  type: String
- *                  description: role id
+ *        description: role id
+ *        schema:
+ *          type: string
  *    requestBody:
  *      required: true
  *      content:
@@ -195,26 +159,14 @@ route.put('/:id',[verifyToken,isAdmin],roleEdit);
  *        name: X-API-Key
  *        required: true
  *        description: you need be admin to access
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                token: 
- *                  type: String
- *                  description: user token
+ *        schema:
+ *          type: string
  *      - in: path
  *        name: id
  *        required: true
- *        description: role _id
- *        content:
- *          application/json:
- *            schema:
- *              type: object
- *              properties:
- *                id: 
- *                  type: String
- *                  description: role id
+ *        description: role id
+ *        schema:
+ *          type: string
  *    responses:
  *      200:
  *        description: get a message 
