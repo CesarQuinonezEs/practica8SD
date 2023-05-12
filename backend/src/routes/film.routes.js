@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const route = Router();
-const {createFilm,deleteFilm,getAllFilms,getByImdbid,editFilm} = require('../controller/film.controller')
+const {createFilm,deleteFilm,getAllFilms,getByImdbid,editFilm,rateFilm} = require('../controller/film.controller')
 const {isAdmin, verifyToken}= require('../middleware/authJWT')
 /**
  * @swagger
@@ -164,7 +164,7 @@ route.get('/:imdbid',getByImdbid);
  * @swagger
  * /api/films/:
  *  put:
- *    summary: edit a fil (only admin)
+ *    summary: edit a film (only admin)
  *    tags: [Film] 
  *    parameters:
  *      - in: header
@@ -199,4 +199,43 @@ route.get('/:imdbid',getByImdbid);
  *                message: film edited!!      
 */
 route.put('/:id',[verifyToken,isAdmin],editFilm)
+/** 
+ * @swagger
+ * /api/films/rate/{id}:
+ *  put:
+ *    summary: rate a film (login)
+ *    tags: [Film] 
+ *    parameters:
+ *      - in: header
+ *        name: X-API-Key
+ *        required: true
+ *        description: you need login to access
+ *        schema:
+ *          type: string
+ *      - in: path
+ *        name: id
+ *        required: true
+ *        description: film id
+ *        schema:
+ *          type: string
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema: 
+ *            type: oject
+ *            $ref: '#/components/schemas/Film'
+ *    responses:
+ *      200:
+ *        description: return menssage
+ *        content:
+ *          application/json:
+ *            schema:
+ *              message:
+ *                  type: String
+ *                  description: film edited!!
+ *              example:
+ *                message: film edited!!      
+*/
+route.put('/rate/:id',rateFilm);
 module.exports = route;
