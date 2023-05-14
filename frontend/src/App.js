@@ -7,7 +7,7 @@ import React, { createContext, useRef, useEffect, useState } from 'react';
 //import Navigation from './components/navigation';
 import Navigation from './components/navigation';
 import Review from './components/Review';
-const FILMS_URI = 'http://localhost:4000/api/films/';
+const FILMS_URI = 'https://practica8sdbackend.onrender.com/api/films/';
 
 export const AppContext = createContext(null);
 

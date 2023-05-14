@@ -4,7 +4,7 @@ import { AppContext } from '../App';
 import Typography from '@mui/material/Typography';
 import Rating from '@mui/material/Rating';
 import axios from 'axios';
-const FILMS_URI = 'http://localhost:4000/api/films/';
+const FILMS_URI = 'https://practica8sdbackend.onrender.com/api/films/';
 export default function Review() {
   const { film, global, cant, user } = useContext(AppContext);
   const [value, setValue] = React.useState(0);
