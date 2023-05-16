@@ -41,8 +41,19 @@ export default function Navigation() {
         
 
     };
-    const handleSignup = (e) => {
+    const handleSignup = async (e) => {
         e.preventDefault();
+        if(e.target.singPasswd.value !== e.target.singPasswd2.value){
+            
+        }else{
+        const singForm = {
+            password: e.target.singUsername.value,
+            username: e.target.singPasswd.value
+        }
+        const res = await axios.post('https://practica8sdbackend.onrender.com/api/singup/',singForm);
+        if(res) alert("Success")
+        handleCloseSignupModal();
+        }
 
         console.log('Registrarse');
     };
@@ -97,11 +108,15 @@ export default function Navigation() {
                     <Form onSubmit={handleSignup}>
                         <Form.Group controlId="formUsername">
                             <Form.Label>Usuario</Form.Label>
-                            <Form.Control type="text" placeholder="Ingresa tu usuario" />
+                            <Form.Control name="singUsername" type="text" placeholder="Ingresa tu usuario" />
                         </Form.Group>
                         <Form.Group controlId="formPassword">
                             <Form.Label>Contraseña</Form.Label>
-                            <Form.Control type="password" placeholder="Ingresa tu contraseña" />
+                            <Form.Control name="singPasswd" type="password" placeholder="Ingresa tu contraseña" />
+                        </Form.Group>
+                        <Form.Group controlId="confirmPasswd">
+                            <Form.Label>Contraseña</Form.Label>
+                            <Form.Control name="singPasswd2" type="password" placeholder="Ingresa tu contraseña" />
                         </Form.Group>
                         <Button variant="primary" type="submit">
                             Registrarse
